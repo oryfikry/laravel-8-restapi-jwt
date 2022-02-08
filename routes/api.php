@@ -9,7 +9,7 @@ Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
-    Route::get('logout', [UserController::class, 'logout']);
+    Route::post('logout', [UserController::class, 'logout']);
     Route::get('get_user', [UserController::class, 'get_user']);
     //product endpoints
     Route::get('product', [ProductController::class, 'index']);
