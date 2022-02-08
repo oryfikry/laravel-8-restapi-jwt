@@ -23,11 +23,11 @@ class JwtMiddleware extends BaseMiddleware
             $user = JWTAuth::parseToken()->authenticate();
         } catch (Exception $e) {
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
-                return response()->json(['status' => 'Seu token de autorização é inválido, por favor, tente relogar.']);
+                return response()->json(['status' => 'Unauthorized token, please try login.']);
             }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
-                return response()->json(['status' => 'Seu token de autorização expirou, é necessário relogar.']);
+                return response()->json(['status' => 'Token has been expired, please login.']);
             }else{
-                return response()->json(['status' => 'Seu token de autorização não foi encontrado, tente relogar.']);
+                return response()->json(['status' => 'Token not found, please login.']);
             }
         }
         return $next($request);

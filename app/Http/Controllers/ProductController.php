@@ -32,12 +32,12 @@ class ProductController extends Controller
      */
     public function index(ProductRepositoryInterface $model)
     {
-        if($this->user->role != 1) {
-            return response()->json([
-            'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
-            ], Response::HTTP_UNAUTHORIZED);
-        }
+        // if($this->user->role != 1) {
+        //     return response()->json([
+        //     'success' => false,
+        //     'message' => 'Unauthorized Action.'
+        //     ], Response::HTTP_UNAUTHORIZED);
+        // }
 
         $products = $model->all();
         return response()->json([
@@ -57,7 +57,7 @@ class ProductController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
         $data = $request->only('category_id', 'name', 'price', 'quantity');
@@ -91,7 +91,7 @@ class ProductController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -117,7 +117,7 @@ class ProductController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -160,7 +160,7 @@ class ProductController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
            

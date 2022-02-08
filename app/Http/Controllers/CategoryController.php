@@ -35,7 +35,7 @@ class CategoryController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
         $categories = $model->all();
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -89,7 +89,7 @@ class CategoryController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -115,7 +115,7 @@ class CategoryController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -155,7 +155,7 @@ class CategoryController extends Controller
         if($this->user->role != 1) {
             return response()->json([
             'success' => false,
-            'message' => 'Você não está autorizado a executar essa ação.'
+            'message' => 'Unauthorized Action.'
             ], Response::HTTP_UNAUTHORIZED);
         }
         

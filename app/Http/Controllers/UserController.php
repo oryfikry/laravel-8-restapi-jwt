@@ -30,7 +30,7 @@ class UserController extends Controller
         ]);
         return response()->json([
             'success' => true,
-            'message' => 'Usuário criado com sucesso.',
+            'message' => 'User Has Been Created.',
             'data' => $user
         ], Response::HTTP_OK);
     }
@@ -50,14 +50,14 @@ class UserController extends Controller
             if (! $token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                 	'success' => false,
-                	'message' => 'Usuário ou senha inválidos.',
+                	'message' => 'Unauthorized, check your email or password',
                 ], 400);
             }
         } catch (JWTException $e) {
     	return $credentials;
             return response()->json([
                 	'success' => false,
-                	'message' => 'Não foi possível gerar o token no momento. Tente novamente mais tarde',
+                	'message' => 'Failed generate token, please try again later.',
                 ], 500);
         }
  	
@@ -81,12 +81,12 @@ class UserController extends Controller
  
             return response()->json([
                 'success' => true,
-                'message' => 'Você está deslogado.'
+                'message' => 'Logout successfully .'
             ]);
         } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
-                'message' => 'Desculpe, não foi possível sair.'
+                'message' => 'Cannot logout, error internal.'
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
